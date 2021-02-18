@@ -1,4 +1,4 @@
-package com.apphooks;
+package AppHooks;
 
 import java.util.Properties;
 
