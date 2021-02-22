@@ -53,6 +53,15 @@ public class LoginPage {
 	}
 	
 	
+	public ProductsPage doLogin(String username, String password) {
+		driver.findElement(usernameElement).sendKeys(username);
+		driver.findElement(passwordElement).sendKeys(password);
+		driver.findElement(loginButton).click();
+		
+		return new ProductsPage(driver);
+		
+	}
+	
 	
 
 }

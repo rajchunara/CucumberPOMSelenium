@@ -8,7 +8,7 @@ Given user is already logged in
 Scenario: Six products available on products page
 Given user is on Products page
 Then search product list
-And there should be six products in list
+And there should be 6 products in list
 
 Scenario: Check product is available on the page
 Given user is on Products page
