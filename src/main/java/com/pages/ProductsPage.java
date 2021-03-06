@@ -15,6 +15,10 @@ private By allProducts = By.cssSelector("div.inventory_list div.inventory_item_n
 private By productsHeader = By.xpath("//div[text()=\"Products\"]");
 private By allProductsImage = By.xpath("inventory_item_img");
 
+private By tShirtProductAddToCartButton = By.xpath("//div[text()=\"Sauce Labs Bolt T-Shirt\"]//ancestor::div[@class=\"inventory_item\"]//child::button[text()=\"ADD TO CART\"]");
+private By bikeLightAddToCartButton = By.xpath("//div[text()=\"Sauce Labs Bike Light\"]//ancestor::div[@class=\"inventory_item\"]//child::button[text()=\"ADD TO CART\"]");
+
+private By cartIconOnProductsPage = By.id("shopping_cart_container");
 
 //constructor
 public ProductsPage(WebDriver driver) {
@@ -75,5 +79,26 @@ public boolean checkAllImageSrcOfProduct(String expectedImgSrc) {
 	return result;
 }
 
+//Check if products are available on page before adding it to cart
+public boolean checkIfProductsAreAvailableOnProductsPage() {
+	boolean areProductsAvailable = driver.findElement(tShirtProductAddToCartButton).isDisplayed() && driver.findElement(bikeLightAddToCartButton).isDisplayed();
+	
+	return areProductsAvailable;	
+}
+
+
+//Click to add products to cart
+public void addProductsToCart() {
+	driver.findElement(tShirtProductAddToCartButton).click();
+	driver.findElement(bikeLightAddToCartButton).click();
+	
+}
+
+//Go to Cart Page
+public CartPage goToCartPage() {
+	driver.findElement(cartIconOnProductsPage).click();
+	
+	return new CartPage(driver);
+}
 
 }

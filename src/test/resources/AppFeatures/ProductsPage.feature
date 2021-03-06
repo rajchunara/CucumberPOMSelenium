@@ -19,3 +19,10 @@ Then product is available with name
 |Sauce Labs Fleece Jacket|
 |Sauce Labs Onesie|
 |Test.allTheThings() T-Shirt (Red)|
+
+Scenario: Add product to the cart feature
+Given user is on Products page
+Then find product with title "Sauce Labs Bolt T-Shirt" and "Sauce Labs Bike Light"
+And click on add to cart button for all products
+Then click on cart logo on top-right to move to cart page
+And verify those products with title "Sauce Labs Bolt T-Shirt" and "Sauce Labs Bike Light" are present in cart
