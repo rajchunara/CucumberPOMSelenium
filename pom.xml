@@ -120,7 +120,7 @@
 					</includes>
 					<parallel>methods</parallel>
 					<threadCount>4</threadCount>
-					<useUnlimitedThreads>false</useUnlimitedThreads>
+					<useUnlimitedThreads>true</useUnlimitedThreads>
 				</configuration>
 			</plugin>
 

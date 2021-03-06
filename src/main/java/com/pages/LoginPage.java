@@ -2,6 +2,7 @@ package com.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class LoginPage {
 	
@@ -14,6 +15,7 @@ public class LoginPage {
 	private By acceptedUsernameHeader=By.xpath("//h4[text()=\"Accepted usernames are:\"]");
 	private By acceptedPasswordHeader = By.xpath("//h4[text()=\"Password for all users:\"]");
 	private By productsHeader = By.xpath("//div[text()=\"Products\"]");
+	private By errorHeader = By.xpath("//h3[@data-test=\"error\"]");
 	
 	
 	//constructor
@@ -27,7 +29,11 @@ public class LoginPage {
 		return driver.getTitle();
 	}
 	
+
 	public boolean getAcceptedUsernameHeader() {
+		System.out.println("getAcceptedUsernameHeader is executed");
+//		System.out.println("Accepted username is displayed:" +driver.findElement(acceptedUsernameHeader).isDisplayed());
+
 		return driver.findElement(acceptedUsernameHeader).isDisplayed();
 	}
 	
@@ -44,8 +50,10 @@ public class LoginPage {
 		driver.findElement(passwordElement).sendKeys(password);
 	}
 	
-	public void clickLoginButton() {
+	public ProductsPage clickLoginButton() {
 		driver.findElement(loginButton).click();
+		
+		return new ProductsPage(driver);
 	}
 	
 	public boolean isProductsPageDisplayed() {
@@ -60,6 +68,18 @@ public class LoginPage {
 		
 		return new ProductsPage(driver);
 		
+	}
+	
+
+	
+	
+	//Errors WebElements checking
+	public boolean isErrorElementDisplayed() {
+		return driver.findElement(errorHeader).isDisplayed();
+	}
+	
+	public String getErrorMessage() {
+		return driver.findElement(errorHeader).getText();
 	}
 	
 	

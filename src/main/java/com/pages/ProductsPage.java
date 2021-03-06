@@ -12,6 +12,8 @@ private WebDriver driver;
 
 //By Locators
 private By allProducts = By.cssSelector("div.inventory_list div.inventory_item_name");
+private By productsHeader = By.xpath("//div[text()=\"Products\"]");
+private By allProductsImage = By.xpath("inventory_item_img");
 
 
 //constructor
@@ -23,6 +25,11 @@ public ProductsPage(WebDriver driver) {
 
 public String getPageTitle() {
 	return driver.getTitle();
+}
+
+public boolean isProductPageHeaderDisplayed() {
+	return driver.findElement(productsHeader).isDisplayed();
+	
 }
 
 public int getAllProductsCount() {
@@ -39,6 +46,33 @@ public List<String> getAllProductsList() {
 	}
 	
 	return productsList;
+}
+
+public List<String> getAllProductsImageSrc(){
+	List<WebElement> allProductsImages = driver.findElements(allProductsImage);
+	List<String> imgSrcList = new ArrayList<String>();
+	
+	for (WebElement e: allProductsImages) {
+		imgSrcList.add(e.getAttribute("src"));
+	}
+	
+	return imgSrcList;
+	
+}
+
+public boolean checkAllImageSrcOfProduct(String expectedImgSrc) {
+	
+	List<String> actualImageSrcOfProducts = getAllProductsImageSrc();
+	boolean result=true;
+	
+	for(String e: actualImageSrcOfProducts) {
+		if(!e.contentEquals(expectedImgSrc)) {
+			result = false;
+			break;
+		};
+	}
+	
+	return result;
 }
 
 

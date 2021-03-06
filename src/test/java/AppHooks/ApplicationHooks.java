@@ -38,7 +38,7 @@ public class ApplicationHooks {
 	
 	/*	This After will be executed at the end*/
 	@After(order = 0)
-	public void quidBrowser() {
+	public void quitBrowser() {
 		webDriver.quit();
 	}
 	

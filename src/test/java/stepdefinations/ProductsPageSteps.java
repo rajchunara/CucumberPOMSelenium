@@ -26,7 +26,7 @@ public class ProductsPageSteps {
 		String username= dataFromFeatureFile.get(0).get("username");
 		String password=dataFromFeatureFile.get(0).get("password");
 	
-		DriverFactory.getDriver().get("https://www.saucedemo.com/index.html");
+		DriverFactory.getDriver().get("https://www.saucedemo.com");
 		
 		productsPage = loginPage.doLogin(username, password);
 	}
