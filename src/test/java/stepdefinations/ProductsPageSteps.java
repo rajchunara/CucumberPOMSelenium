@@ -77,6 +77,18 @@ public class ProductsPageSteps {
 		Assert.assertTrue(cartPage.checkIfProductsPresentInCart());
 	}
 	
+	@Then("click on remove button of bike light product")
+	public void click_on_remove_button_of_bike_light_product() {
+		
+		cartPage.clickOnRemoveProductButton();
+	}
+
+	@Then("check if the button is removed from the cart")
+	public void check_if_the_button_is_removed_from_the_cart() {
+		Assert.assertFalse(cartPage.isBikeLightPresentInCart());
+		
+	}
+	
 	
 	
 

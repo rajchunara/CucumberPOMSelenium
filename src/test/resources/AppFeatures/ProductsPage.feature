@@ -26,3 +26,12 @@ Then find product with title "Sauce Labs Bolt T-Shirt" and "Sauce Labs Bike Ligh
 And click on add to cart button for all products
 Then click on cart logo on top-right to move to cart page
 And verify those products with title "Sauce Labs Bolt T-Shirt" and "Sauce Labs Bike Light" are present in cart
+
+
+Scenario: Remove product from the cart feature
+Then find product with title "Sauce Labs Bolt T-Shirt" and "Sauce Labs Bike Light"
+And click on add to cart button for all products
+Then click on cart logo on top-right to move to cart page
+And verify those products with title "Sauce Labs Bolt T-Shirt" and "Sauce Labs Bike Light" are present in cart
+Then click on remove button of bike light product
+And check if the button is removed from the cart

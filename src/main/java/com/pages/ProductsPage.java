@@ -101,4 +101,10 @@ public CartPage goToCartPage() {
 	return new CartPage(driver);
 }
 
+
+public String getProductPageURL() {
+	return driver.getCurrentUrl();
+}
+
+
 }
